@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一般社団法人 日本ショート動画協会</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent1: #FFE66D;
+            --accent2: #95E1D3;
+            --accent3: #F38181;
+            --accent4: #AA96DA;
+            --dark: #2C3E50;
+            --light: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* ヘッダー */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent4) 50%, var(--secondary) 100%);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: var(--light);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* ヒーローセクション */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent4) 50%, var(--secondary) 100%);
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--accent1);
+            border-radius: 50%;
+            top: 10%;
+            left: -100px;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--accent2);
+            border-radius: 50%;
+            bottom: 10%;
+            right: -50px;
+            opacity: 0.4;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--light);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--light);
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent1);
+            color: var(--dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--light);
+            color: var(--primary);
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 30px rgba(0,0,0,0.3);
+        }
+
+        /* セクション共通 */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            margin: 1rem auto;
+            border-radius: 3px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* アバウトセクション */
+        .about {
+            background: linear-gradient(180deg, #fff 0%, #f8f9ff 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .about-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .about-card {
+            background: linear-gradient(135deg, var(--primary), var(--accent3));
+            padding: 2rem;
+            border-radius: 20px;
+            color: var(--light);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:nth-child(2) {
+            background: linear-gradient(135deg, var(--secondary), var(--accent2));
+            transform: translateY(20px);
+        }
+
+        .about-card:nth-child(3) {
+            background: linear-gradient(135deg, var(--accent4), #C9B1FF);
+            transform: translateY(-20px);
+        }
+
+        .about-card:nth-child(4) {
+            background: linear-gradient(135deg, var(--accent1), #FFD93D);
+            color: var(--dark);
+        }
+
+        .about-card:hover {
+            transform: scale(1.05) translateY(0);
+        }
+
+        .about-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        /* ミッションセクション */
+        .mission {
+            background: linear-gradient(135deg, var(--dark) 0%, #1a252f 100%);
+            color: var(--light);
+        }
+
+        .mission .section-title {
+            color: var(--light);
+        }
+
+        .mission-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .mission-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .mission-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-10px);
+        }
+
+        .mission-card .number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent1);
+        }
+
+        .mission-card p {
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        /* 活動内容セクション */
+        .activities {
+            background: linear-gradient(180deg, #f8f9ff 0%, #fff 100%);
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .activity-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: var(--light);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--primary);
+        }
+
+        .activity-item:nth-child(2) {
+            border-left-color: var(--secondary);
+        }
+
+        .activity-item:nth-child(3) {
+            border-left-color: var(--accent4);
+        }
+
+        .activity-item:nth-child(4) {
+            border-left-color: var(--accent1);
+        }
+
+        .activity-item:nth-child(5) {
+            border-left-color: var(--secondary);
+        }
+
+        .activity-item:nth-child(6) {
+            border-left-color: var(--accent3);
+        }
+
+        .activity-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+        }
+
+        .activity-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent3));
+            border-radius: 15px;
+        }
+
+        .activity-item:nth-child(2) .activity-icon {
+            background: linear-gradient(135deg, var(--secondary), var(--accent2));
+        }
+
+        .activity-item:nth-child(3) .activity-icon {
+            background: linear-gradient(135deg, var(--accent4), #C9B1FF);
+        }
+
+        .activity-item:nth-child(4) .activity-icon {
+            background: linear-gradient(135deg, var(--accent1), #FFD93D);
+        }
+
+        .activity-item:nth-child(5) .activity-icon {
+            background: linear-gradient(135deg, var(--secondary), var(--accent2));
+        }
+
+        .activity-item:nth-child(6) .activity-icon {
+            background: linear-gradient(135deg, var(--accent3), var(--primary));
+        }
+
+        .activity-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .activity-content p {
+            color: #666;
+        }
+
+        /* 概要セクション */
+        .overview {
+            background: linear-gradient(135deg, var(--accent2) 0%, var(--secondary) 100%);
+        }
+
+        .overview .section-title {
+            color: var(--dark);
+        }
+
+        .overview-table {
+            background: var(--light);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .overview-row {
+            display: flex;
+            border-bottom: 1px solid #eee;
+        }
+
+        .overview-row:last-child {
+            border-bottom: none;
+        }
+
+        .overview-label {
+            flex: 0 0 200px;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(90deg, var(--secondary), var(--accent2));
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .overview-value {
+            flex: 1;
+            padding: 1.5rem 2rem;
+            color: #555;
+        }
+
+        /* 会員募集セクション */
+        .membership {
+            background: linear-gradient(180deg, #fff 0%, #f8f9ff 100%);
+        }
+
+        .membership-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .membership-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        .membership-card {
+            background: var(--light);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .membership-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .membership-card.primary {
+            border: 3px solid var(--primary);
+        }
+
+        .membership-card.secondary {
+            border: 3px solid var(--secondary);
+        }
+
+        .membership-card-header {
+            padding: 2rem;
+            text-align: center;
+            color: var(--light);
+        }
+
+        .membership-card.primary .membership-card-header {
+            background: linear-gradient(135deg, var(--primary), var(--accent3));
+        }
+
+        .membership-card.secondary .membership-card-header {
+            background: linear-gradient(135deg, var(--secondary), var(--accent2));
+        }
+
+        .membership-card-header h3 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .membership-card-header .price {
+            font-size: 2.5rem;
+            font-weight: 900;
+        }
+
+        .membership-card-header .price span {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .membership-card-body {
+            padding: 2rem;
+        }
+
+        .membership-card-body ul {
+            list-style: none;
+        }
+
+        .membership-card-body li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .membership-card-body li:last-child {
+            border-bottom: none;
+        }
+
+        .membership-card-body li::before {
+            content: '✓';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .membership-card.primary li::before {
+            background: var(--primary);
+            color: var(--light);
+        }
+
+        .membership-card.secondary li::before {
+            background: var(--secondary);
+            color: var(--light);
+        }
+
+        .membership-note {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(170, 150, 218, 0.1);
+            border-radius: 15px;
+            border-left: 4px solid var(--accent4);
+        }
+
+        .membership-note p {
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .membership-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .membership-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Noteセクション */
+        .news {
+            background: linear-gradient(135deg, var(--accent4) 0%, #C9B1FF 100%);
+        }
+
+        .news .section-title {
+            color: var(--dark);
+        }
+
+        .news-intro {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .note-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #41C9B4;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .note-logo:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+        }
+
+        .news-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto 2rem;
+        }
+
+        .news-card {
+            background: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--dark);
+            display: block;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .news-card-image {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .news-card-body {
+            padding: 1.5rem;
+        }
+
+        .news-card-date {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.5;
+            color: var(--dark);
+        }
+
+        .news-more {
+            text-align: center;
+        }
+
+        .news-more a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--dark);
+            color: var(--light);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .news-more a:hover {
+            background: #1a252f;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .news-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* お問い合わせセクション */
+        .contact {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent4) 100%);
+            text-align: center;
+            color: var(--light);
+        }
+
+        .contact .section-title {
+            color: var(--light);
+        }
+
+        .contact-info {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-item .label {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--accent1);
+        }
+
+        .contact-item .value {
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: var(--light);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        /* フッター */
+        footer {
+            background: var(--dark);
+            color: var(--light);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .mission-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .activities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .overview-row {
+                flex-direction: column;
+            }
+
+            .overview-label {
+                flex: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-visual {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card:nth-child(2),
+            .about-card:nth-child(3) {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <nav>
+            <div class="logo">日本ショート動画協会</div>
+            <ul class="nav-links">
+                <li><a href="#about">協会について</a></li>
+                <li><a href="#mission">ミッション</a></li>
+                <li><a href="#activities">活動内容</a></li>
+                <li><a href="#news">お知らせ</a></li>
+                <li><a href="#membership">会員募集</a></li>
+                <li><a href="#overview">概要</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">2025年設立</div>
+            <h1>一般社団法人<br>日本ショート動画協会</h1>
+            <p class="subtitle">Japan Short Video Association</p>
+            <a href="#about" class="cta-button">詳しく見る</a>
+        </div>
+    </section>
+
+    <!-- アバウトセクション -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">協会について</h2>
+            <p class="section-subtitle">About Us</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        一般社団法人 日本ショート動画協会は、日本の企業、団体及びクリエイターの共同によるショート動画市場の健全な発展を図り、ショートドラマ業界全体のクリエイティビティ向上に貢献することを目的として2025年に設立されました。
+                    </p>
+                    <p>
+                        中国の縦型ショートドラマ市場は1兆円規模に達し、映画市場を上回る成長を見せています。北米市場も2030年までに年率10%超の成長が予測される中、オールジャパンでのプロモーションとマーケティングが不可欠です。
+                    </p>
+                    <p>
+                        市場黎明期にある縦型ショートドラマ市場において、著作権や制作時の注意事項に関する合意形成、明確な制作・取引ルールの策定を通じて、新規参入プレイヤーの促進・啓蒙を行い、業界の持続的で健全な発展に貢献してまいります。
+                    </p>
+                </div>
+                <div class="about-visual">
+                    <div class="about-card">
+                        <div class="icon">🎬</div>
+                        <h3>市場の健全な発展</h3>
+                    </div>
+                    <div class="about-card">
+                        <div class="icon">🌏</div>
+                        <h3>グローバル展開</h3>
+                    </div>
+                    <div class="about-card">
+                        <div class="icon">📋</div>
+                        <h3>ルール策定</h3>
+                    </div>
+                    <div class="about-card">
+                        <div class="icon">🚀</div>
+                        <h3>新規参入支援</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ミッションセクション -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <h2 class="section-title">ミッション</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Our Mission</p>
+            <div class="mission-cards">
+                <div class="mission-card">
+                    <div class="number">1</div>
+                    <h3>市場の健全な発展</h3>
+                    <p>市場黎明期にある縦型ショートドラマ市場の持続的で健全な発展を推進します。</p>
+                </div>
+                <div class="mission-card">
+                    <div class="number">2</div>
+                    <h3>新規参入の促進・啓蒙</h3>
+                    <p>新規参入プレイヤーの促進と啓蒙活動を通じて、業界全体の活性化に貢献します。</p>
+                </div>
+                <div class="mission-card">
+                    <div class="number">3</div>
+                    <h3>制作・取引ルールの規定</h3>
+                    <p>著作権や制作時の注意事項に関する合意形成を図り、明確な制作・取引ルールを策定します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 活動内容セクション -->
+    <section class="activities" id="activities">
+        <div class="container">
+            <h2 class="section-title">活動内容</h2>
+            <p class="section-subtitle">Activities</p>
+            <div class="activities-grid">
+                <div class="activity-item">
+                    <div class="activity-icon">📋</div>
+                    <div class="activity-content">
+                        <h3>権利処理ガイドラインの策定</h3>
+                        <p>ドラマ制作に関わる権利処理のガイドライン明示と啓蒙活動を行います。</p>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon">📢</div>
+                    <div class="activity-content">
+                        <h3>マーケティング・ブランド向上</h3>
+                        <p>ショートドラマのブランド向上を目的としたマーケティング活動を推進します。</p>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon">🎓</div>
+                    <div class="activity-content">
+                        <h3>セミナー・勉強会</h3>
+                        <p>動画制作・ビジネスに関するセミナー・勉強会を開催し、人材育成に貢献します。</p>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon">🏆</div>
+                    <div class="activity-content">
+                        <h3>資格認定・作品表彰</h3>
+                        <p>動画制作者の資格認定および優秀作品の表彰制度を実施します。</p>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon">🌏</div>
+                    <div class="activity-content">
+                        <h3>海外進出支援</h3>
+                        <p>海外進出に関する業界横断的連携を推進し、グローバル市場でのシェア獲得を目指します。</p>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon">📊</div>
+                    <div class="activity-content">
+                        <h3>市場統計・レポート発信</h3>
+                        <p>市場統計・レポート・ニュースの発信を通じて、業界の最新動向をお届けします。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お知らせ（Note）セクション -->
+    <section class="news" id="news">
+        <div class="container">
+            <h2 class="section-title">お知らせ</h2>
+            <p class="section-subtitle">News from Note</p>
+            <div class="news-intro">
+                <a href="https://note.com/shortassosiation" target="_blank" rel="noopener noreferrer" class="note-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    </svg>
+                    公式Note
+                </a>
+            </div>
+            <div class="news-cards">
+                <a href="https://note.com/shortassosiation/n/n28e72a4fdcd3" target="_blank" rel="noopener noreferrer" class="news-card">
+                    <div class="news-card-image">📺</div>
+                    <div class="news-card-body">
+                        <div class="news-card-date">2025.12.26</div>
+                        <div class="news-card-title">ショートドラマの未来 - 『Startup JAPAN EXPO 2025 in 大阪』</div>
+                    </div>
+                </a>
+                <a href="https://note.com/shortassosiation" target="_blank" rel="noopener noreferrer" class="news-card">
+                    <div class="news-card-image">📰</div>
+                    <div class="news-card-body">
+                        <div class="news-card-date">-</div>
+                        <div class="news-card-title">最新記事はNoteでご覧ください</div>
+                    </div>
+                </a>
+                <a href="https://note.com/shortassosiation" target="_blank" rel="noopener noreferrer" class="news-card">
+                    <div class="news-card-image">🎬</div>
+                    <div class="news-card-body">
+                        <div class="news-card-date">-</div>
+                        <div class="news-card-title">最新記事はNoteでご覧ください</div>
+                    </div>
+                </a>
+            </div>
+            <div class="news-more">
+                <a href="https://note.com/shortassosiation" target="_blank" rel="noopener noreferrer">
+                    Noteで全ての記事を見る →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 会員募集セクション -->
+    <section class="membership" id="membership">
+        <div class="container">
+            <h2 class="section-title">会員募集</h2>
+            <p class="section-subtitle">Membership</p>
+            <p class="membership-intro">
+                団体設立にご同意いただき、市場発展のためにご尽力いただける個人・法人さまを会員として募集しています。<br>
+                ショート動画・ショートドラマ業界の健全な発展に、ぜひご参加ください。
+            </p>
+            <div class="membership-cards">
+                <div class="membership-card primary">
+                    <div class="membership-card-header">
+                        <h3>本会員（正会員）</h3>
+                        <div class="price">30<span>万円/年（税抜）</span></div>
+                    </div>
+                    <div class="membership-card-body">
+                        <ul>
+                            <li>社員総会における議決権（1票）</li>
+                            <li>講演会・セミナー・研修会等への会員価格参加</li>
+                            <li>会報・報告書・各種資料の配布</li>
+                            <li>本会の活動に関する意見表明・資料請求</li>
+                            <li>会員限定イベントへの参加</li>
+                            <li>業界ネットワーキング機会の提供</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="membership-card secondary">
+                    <div class="membership-card-header">
+                        <h3>準会員</h3>
+                        <div class="price">10<span>万円/年（税抜）</span></div>
+                    </div>
+                    <div class="membership-card-body">
+                        <ul>
+                            <li>講演会・セミナー・研修会等への会員価格参加</li>
+                            <li>会報・報告書・各種資料の配布</li>
+                            <li>本会の活動に関する意見表明・資料請求</li>
+                            <li>会員限定イベントへの参加</li>
+                            <li>業界ネットワーキング機会の提供</li>
+                            <li>※議決権はありません</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="membership-note">
+                <p><strong>会員資格の有効期間</strong></p>
+                <p>毎年4月1日から翌年3月31日までの1年間</p>
+                <p>入会をご希望の方は、下記お問い合わせよりご連絡ください。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 概要セクション -->
+    <section class="overview" id="overview">
+        <div class="container">
+            <h2 class="section-title">協会概要</h2>
+            <p class="section-subtitle">Overview</p>
+            <div class="overview-table">
+                <div class="overview-row">
+                    <div class="overview-label">名称</div>
+                    <div class="overview-value">一般社団法人 日本ショート動画協会</div>
+                </div>
+                <div class="overview-row">
+                    <div class="overview-label">英語名称</div>
+                    <div class="overview-value">Japan Short Video Association</div>
+                </div>
+                <div class="overview-row">
+                    <div class="overview-label">設立</div>
+                    <div class="overview-value">2025年</div>
+                </div>
+                <div class="overview-row">
+                    <div class="overview-label">理事</div>
+                    <div class="overview-value">
+                        志村 一隆（代表理事 / NTTスタジオ&ライブ株式会社 取締役）<br>
+                        中川 元太（株式会社Minto 取締役）
+                    </div>
+                </div>
+                <div class="overview-row">
+                    <div class="overview-label">所在地</div>
+                    <div class="overview-value">東京都新宿区新宿4丁目3番15号</div>
+                </div>
+                <div class="overview-row">
+                    <div class="overview-label">事業内容</div>
+                    <div class="overview-value">
+                        ・国内関連団体、企業等との連携及び協力<br>
+                        ・市場トレンド、関連企業等に関する調査及び研究<br>
+                        ・イベント、講演会、セミナー、勉強会等の企画・運営・開催<br>
+                        ・業界発展を目的とした提言の実施<br>
+                        ・教育研修事業・コミュニティ運営事業<br>
+                        ・各種映像、デジタルコンテンツの企画・制作・配信
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お問い合わせセクション -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">お問い合わせ</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Contact</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="label">メールアドレス</div>
+                    <div class="value">
+                        <a href="mailto:info@example.com">info@example.com（※後で編集してください）</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="label">所在地</div>
+                    <div class="value">東京都新宿区新宿4丁目3番15号</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <p>&copy; 2025 一般社団法人 日本ショート動画協会 All Rights Reserved.</p>
+    </footer>
+
+    <!-- スムーススクロール -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
