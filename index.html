@@ -69,7 +69,7 @@
             padding: 1rem 2rem;
             position: fixed;
             width: 100%;
-            top: 0;
+            top: 44px;
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
@@ -868,9 +868,34 @@
     transform:translateY(-3px);
     box-shadow:0 14px 28px rgba(0,0,0,0.22);
 }
+.top-banner{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:linear-gradient(90deg,#FF6B6B,#AA96DA);
+    color:#ffffff;
+    text-align:center;
+    padding:10px 15px;
+    font-weight:700;
+    font-size:0.95rem;
+    text-decoration:none;
+    z-index:99999;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+
+.top-banner:hover{
+    opacity:0.95;
+}
     </style>
 </head>
 <body>
+    <a href="https://forms.gle/XQKxBwhDyQVVbHtf6"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="top-banner">
+   📢 公募説明会受付中｜5/11 15:00締切　申込はこちら →
+</a>
     <!-- ヘッダー -->
     <header>
         <nav>
@@ -1221,5 +1246,16 @@
    📢 公募説明会受付中<br>
    5/11 15:00締切 →
 </a>
+    <script>
+const deadline = new Date('2026-05-11T15:00:00+09:00');
+const now = new Date();
+
+if(now > deadline){
+    const banner = document.querySelector('.top-banner');
+    if(banner){
+        banner.style.display = 'none';
+    }
+}
+</script>
 </body>
 </html>
