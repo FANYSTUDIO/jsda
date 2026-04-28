@@ -1078,7 +1078,7 @@
                         <div class="news-card-title">最新記事はNoteでご覧ください</div>
                     </div>
                 </a>
-                <a href="https://forms.gle/XQKxBwhDyQVVbHtf6" target="_blank" rel="noopener noreferrer" class="news-card">
+                <a href="https://forms.gle/XQKxBwhDyQVVbHtf6" target="_blank" rel="noopener noreferrer" class="news-card campaign-card">
                     <div class="news-card-image">📢</div>
                     <div class="news-card-body">
                         <div class="news-card-date notice-deadline">
@@ -1090,9 +1090,9 @@
                             公募説明会
                         </div>
                         
-                        <div style="margin-top:8px;font-size:0.9rem;color:#FF6B6B;font-weight:700;">
-                            申込はこちら →
-                        </div>
+                        <div class="campaign-status" style="margin-top:8px;font-size:0.9rem;color:#FF6B6B;font-weight:700;">
+    申込はこちら →
+</div>
                     </div>
                 </a>
             </div>
@@ -1299,6 +1299,25 @@ if (contactMessage && inCampaign) {
     </div>
   `;
 }
+const campaignCard = document.querySelector('.campaign-card');
+const campaignStatus = document.querySelector('.campaign-status');
+
+if (nowTime > campaignEnd && campaignCard) {
+
+  campaignCard.removeAttribute('href');
+  campaignCard.removeAttribute('target');
+
+  campaignCard.style.cursor = 'default';
+  campaignCard.style.pointerEvents = 'none';
+  campaignCard.style.opacity = '0.75';
+
+  if (campaignStatus) {
+    campaignStatus.innerHTML = '応募受付は終了しました';
+    campaignStatus.style.color = '#666666';
+    campaignCard.style.filter = 'grayscale(20%)';
+  }
+}
+
 </script>
 </body>
 </html>
