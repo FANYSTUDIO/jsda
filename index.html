@@ -1293,7 +1293,6 @@ const contactMessage = document.querySelector('.contact-message');
 if (contactMessage && inCampaign) {
   contactMessage.innerHTML = `
     <div class="value" style="font-size:1.15rem; line-height:1.9;">
-      オンライン開催<br>
       お申込みいただいた方へ<br>
       視聴URLをご案内します
     </div>
@@ -1304,17 +1303,20 @@ const campaignStatus = document.querySelector('.campaign-status');
 
 if (nowTime > campaignEnd && campaignCard) {
 
+  /* リンク無効化 */
   campaignCard.removeAttribute('href');
   campaignCard.removeAttribute('target');
 
+  /* 見た目調整 */
   campaignCard.style.cursor = 'default';
   campaignCard.style.pointerEvents = 'none';
-  campaignCard.style.opacity = '0.75';
+  campaignCard.style.opacity = '0.82';
+  campaignCard.style.filter = 'grayscale(22%)';
 
+  /* 文言変更 */
   if (campaignStatus) {
     campaignStatus.innerHTML = '応募受付は終了しました';
     campaignStatus.style.color = '#666666';
-    campaignCard.style.filter = 'grayscale(20%)';
   }
 }
 
