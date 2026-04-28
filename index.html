@@ -1246,15 +1246,22 @@
    📢 公募説明会受付中<br>
    5/11 15:00締切 →
 </a>
-    <script>
+<script>
 const deadline = new Date('2026-05-11T15:00:00+09:00');
 const now = new Date();
 
-if(now > deadline){
-    const banner = document.querySelector('.top-banner');
-    if(banner){
-        banner.style.display = 'none';
+if (now > deadline) {
+
+    const topBanner = document.querySelector('.top-banner');
+    if (topBanner) {
+        topBanner.style.display = 'none';
     }
+
+    const floatingBanner = document.querySelector('.floating-banner');
+    if (floatingBanner) {
+        floatingBanner.style.display = 'none';
+    }
+
 }
 </script>
 </body>
