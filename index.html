@@ -887,6 +887,18 @@
 .top-banner:hover{
     opacity:0.95;
 }
+@media (max-width: 768px){
+
+  .hero h1{
+    font-size: 1.78rem;
+    line-height: 1.35;
+    letter-spacing: -0.03em;
+    text-align:center;
+    word-break: keep-all;
+    margin-bottom: 1rem;
+  }
+
+}
     </style>
 </head>
 <body>
@@ -894,7 +906,7 @@
    target="_blank"
    rel="noopener noreferrer"
    class="top-banner">
-   📢 公募説明会受付中｜5/11 15:00締切　申込はこちら →
+   📢 公募説明会受付中｜2026/5/11 15:00締切　申込はこちら →
 </a>
     <!-- ヘッダー -->
     <header>
@@ -1244,7 +1256,7 @@
    rel="noopener noreferrer"
    class="floating-banner">
    📢 公募説明会受付中<br>
-   5/11 15:00締切 →
+   2026/5/11 15:00締切 →
 </a>
 <script>
 const deadline = new Date('2026-05-11T15:00:00+09:00');
@@ -1261,6 +1273,31 @@ if (now > deadline) {
     if (floatingBanner) {
         floatingBanner.style.display = 'none';
     }
+
+}
+</script>
+    <script>
+const startDate = new Date('2026-04-28T00:00:00+09:00');
+const deadline = new Date('2026-05-11T15:00:00+09:00');
+const now = new Date();
+
+const contactBtn = document.querySelector('.contact-form-btn');
+
+if(contactBtn){
+
+  if(now >= startDate && now <= deadline){
+
+    contactBtn.href = 'https://forms.gle/XQKxBwhDyQVVbHtf6';
+    contactBtn.target = '_blank';
+    contactBtn.innerHTML = '公募説明会申込はこちら';
+
+  }else{
+
+    contactBtn.href = 'https://forms.gle/gAcDHZp7Zgte4o5w7';
+    contactBtn.target = '_blank';
+    contactBtn.innerHTML = 'お問い合わせフォームはこちら';
+
+  }
 
 }
 </script>
