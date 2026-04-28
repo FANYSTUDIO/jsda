@@ -1206,7 +1206,7 @@
             <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Contact</p>
             <div class="contact-info">
                 
-                <div class="contact-item">
+                <div class="contact-item contact-message">
                     <div class="value" style="font-size:1.15rem; line-height:1.9;">
                         ご相談・会員入会・取材・提携など<br>
                         お気軽にお問い合わせください
@@ -1263,26 +1263,41 @@ const nowTime = new Date();
 const campaignStart = new Date('2026-04-28T00:00:00+09:00');
 const campaignEnd = new Date('2026-05-11T15:00:00+09:00');
 
-/* 締切後：上部・右下バナーを非表示 */
+const inCampaign = nowTime >= campaignStart && nowTime <= campaignEnd;
+
+/* 締切後バナー削除 */
 if (nowTime > campaignEnd) {
-    document.querySelectorAll('.top-banner, .floating-banner').forEach(function(el){
-        el.style.display = 'none';
-    });
+  document.querySelectorAll('.top-banner, .floating-banner').forEach(el => {
+    el.style.display = 'none';
+  });
 }
 
-/* お問い合わせボタンを期間中だけ公募フォームへ切替 */
+/* ボタン切替 */
 const contactBtn = document.querySelector('.contact-form-btn');
 
 if (contactBtn) {
-    if (nowTime >= campaignStart && nowTime <= campaignEnd) {
-        contactBtn.href = 'https://forms.gle/XQKxBwhDyQVVbHtf6';
-        contactBtn.target = '_blank';
-        contactBtn.innerHTML = '公募説明会申込はこちら';
-    } else {
-        contactBtn.href = 'https://forms.gle/gAcDHZp7Zgte4o5w7';
-        contactBtn.target = '_blank';
-        contactBtn.innerHTML = 'お問い合わせフォームはこちら';
-    }
+  if (inCampaign) {
+    contactBtn.href = 'https://forms.gle/XQKxBwhDyQVVbHtf6';
+    contactBtn.target = '_blank';
+    contactBtn.innerHTML = '公募説明会申込はこちら';
+  } else {
+    contactBtn.href = 'https://forms.gle/gAcDHZp7Zgte4o5w7';
+    contactBtn.target = '_blank';
+    contactBtn.innerHTML = 'お問い合わせフォームはこちら';
+  }
+}
+
+/* 文言差し替え */
+const contactMessage = document.querySelector('.contact-message');
+
+if (contactMessage && inCampaign) {
+  contactMessage.innerHTML = `
+    <div class="value" style="font-size:1.15rem; line-height:1.9;">
+      オンライン開催<br>
+      お申込みいただいた方へ<br>
+      視聴URLをご案内します
+    </div>
+  `;
 }
 </script>
 </body>
