@@ -16,6 +16,43 @@
             font-weight: 700;
         }
 
+        .campaign-actions {
+            display: grid;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .campaign-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 42px;
+            padding: 0.65rem 1rem;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--primary), var(--accent3));
+            color: var(--light);
+            font-size: 0.92rem;
+            font-weight: 700;
+            line-height: 1.35;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .campaign-button.secondary {
+            background: linear-gradient(135deg, var(--secondary), var(--accent2));
+            color: var(--dark);
+        }
+
+        .campaign-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.16);
+        }
+
+        .campaign-card.is-closed .campaign-actions {
+            display: none;
+        }
+
         .contact-form-btn{
             display:inline-block;
             background:rgba(255,255,255,0.78);
@@ -48,6 +85,7 @@
             --accent4: #AA96DA;
             --dark: #2C3E50;
             --light: #FFFFFF;
+            --top-banner-height: 44px;
         }
 
         * {
@@ -69,7 +107,7 @@
             padding: 1rem 2rem;
             position: fixed;
             width: 100%;
-            top: 44px;
+            top: var(--top-banner-height);
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
@@ -873,12 +911,17 @@
     top:0;
     left:0;
     width:100%;
+    min-height:var(--top-banner-height);
+    display:flex;
+    align-items:center;
+    justify-content:center;
     background:linear-gradient(90deg,#FF6B6B,#AA96DA);
     color:#ffffff;
     text-align:center;
     padding:10px 15px;
     font-weight:700;
     font-size:0.95rem;
+    line-height:1.35;
     text-decoration:none;
     z-index:99999;
     box-shadow:0 4px 15px rgba(0,0,0,0.15);
@@ -888,6 +931,21 @@
     opacity:0.95;
 }
 @media (max-width: 768px){
+  :root{
+    --top-banner-height: 64px;
+  }
+
+  .top-banner{
+    padding:8px 12px;
+    font-size:0.82rem;
+  }
+
+  .floating-banner{
+    right:12px;
+    bottom:12px;
+    max-width:calc(100% - 24px);
+    font-size:0.86rem;
+  }
 
   .hero h1{
     font-size: 1.78rem;
@@ -902,11 +960,11 @@
     </style>
 </head>
 <body>
-    <a href="https://forms.gle/XQKxBwhDyQVVbHtf6"
+    <a href="https://forms.gle/W4JCpewsj7a9rFB26"
    target="_blank"
    rel="noopener noreferrer"
    class="top-banner">
-   📢 公募説明会受付中｜2026/5/11(月) 15:00締切　申込はこちら →
+   📢 「ショート動画ドラマ等の新たなIP開発」公募受付中｜令和8年6月9日（火）午後5時必着　応募はこちら →
 </a>
     <!-- ヘッダー -->
     <header>
@@ -1078,23 +1136,29 @@
                         <div class="news-card-title">最新記事はNoteでご覧ください</div>
                     </div>
                 </a>
-                <a href="https://forms.gle/XQKxBwhDyQVVbHtf6" target="_blank" rel="noopener noreferrer" class="news-card campaign-card">
+                <div class="news-card campaign-card">
                     <div class="news-card-image">📢</div>
                     <div class="news-card-body">
                         <div class="news-card-date notice-deadline">
-                            申込締切：2026.5.11 15:00
+                            応募締切：令和8年6月9日（火）午後5時必着
                         </div>
                         
                         <div class="news-card-title">
-                            ショート動画ドラマ等新たなIP開発<br>
-                            公募説明会
+                            「ショート動画ドラマ等の新たなIP開発」公募のお知らせ
                         </div>
                         
-                        <div class="campaign-status" style="margin-top:8px;font-size:0.9rem;color:#FF6B6B;font-weight:700;">
-    申込はこちら →
-</div>
+                        <div class="campaign-actions">
+                            <a href="https://drive.google.com/file/d/1MFM0AWMwhssimv2TAuetxAUgdO1qmMyU/preview" target="_blank" rel="noopener noreferrer" class="campaign-button secondary">
+                                公募要領を見る
+                            </a>
+                            <a href="https://forms.gle/W4JCpewsj7a9rFB26" target="_blank" rel="noopener noreferrer" class="campaign-button">
+                                応募フォームへ
+                            </a>
+                        </div>
+
+                        <div class="campaign-status" style="margin-top:8px;font-size:0.9rem;color:#FF6B6B;font-weight:700;"></div>
                     </div>
-                </a>
+                </div>
             </div>
             <div class="news-more">
                 <a href="https://note.com/shortassosiation" target="_blank" rel="noopener noreferrer">
@@ -1251,19 +1315,18 @@
             });
         });
     </script>
-<a href="https://forms.gle/XQKxBwhDyQVVbHtf6"
+<a href="https://forms.gle/W4JCpewsj7a9rFB26"
    target="_blank"
    rel="noopener noreferrer"
    class="floating-banner">
-   📢 公募説明会受付中<br>
-   2026/5/11(月)15:00締切 →
+   📢 公募受付中<br>
+   令和8年6月9日（火）午後5時必着 →
 </a>
 <script>
 const nowTime = new Date();
-const campaignStart = new Date('2026-04-28T00:00:00+09:00');
-const campaignEnd = new Date('2026-05-11T15:00:00+09:00');
+const campaignEnd = new Date('2026-06-09T17:00:00+09:00');
 
-const inCampaign = nowTime >= campaignStart && nowTime <= campaignEnd;
+const beforeCampaignDeadline = nowTime <= campaignEnd;
 
 /* 締切後バナー削除 */
 if (nowTime > campaignEnd) {
@@ -1276,10 +1339,10 @@ if (nowTime > campaignEnd) {
 const contactBtn = document.querySelector('.contact-form-btn');
 
 if (contactBtn) {
-  if (inCampaign) {
-    contactBtn.href = 'https://forms.gle/XQKxBwhDyQVVbHtf6';
+  if (beforeCampaignDeadline) {
+    contactBtn.href = 'https://forms.gle/W4JCpewsj7a9rFB26';
     contactBtn.target = '_blank';
-    contactBtn.innerHTML = '公募説明会申込はこちら';
+    contactBtn.innerHTML = '応募フォームはこちら';
   } else {
     contactBtn.href = 'https://forms.gle/gAcDHZp7Zgte4o5w7';
     contactBtn.target = '_blank';
@@ -1290,11 +1353,11 @@ if (contactBtn) {
 /* 文言差し替え */
 const contactMessage = document.querySelector('.contact-message');
 
-if (contactMessage && inCampaign) {
+if (contactMessage && beforeCampaignDeadline) {
   contactMessage.innerHTML = `
     <div class="value" style="font-size:1.15rem; line-height:1.9;">
-      お申込みいただいた方へ<br>
-      視聴URLをご案内します
+      公募へのご応募は<br>
+      応募フォームよりお進みください
     </div>
   `;
 }
@@ -1303,19 +1366,15 @@ const campaignStatus = document.querySelector('.campaign-status');
 
 if (nowTime > campaignEnd && campaignCard) {
 
-  /* リンク無効化 */
-  campaignCard.removeAttribute('href');
-  campaignCard.removeAttribute('target');
-
   /* 見た目調整 */
   campaignCard.style.cursor = 'default';
-  campaignCard.style.pointerEvents = 'none';
   campaignCard.style.opacity = '0.82';
   campaignCard.style.filter = 'grayscale(22%)';
+  campaignCard.classList.add('is-closed');
 
   /* 文言変更 */
   if (campaignStatus) {
-    campaignStatus.innerHTML = '応募受付は終了しました';
+    campaignStatus.innerHTML = '応募は締め切りました';
     campaignStatus.style.color = '#666666';
   }
 }
