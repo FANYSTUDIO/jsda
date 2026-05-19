@@ -658,6 +658,24 @@
             margin-bottom: 0;
         }
 
+        .membership-form-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            background: var(--accent4);
+            color: var(--light);
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+        }
+
+        .membership-form-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+        }
+
         @media (max-width: 768px) {
             .membership-cards {
                 grid-template-columns: 1fr;
@@ -1214,7 +1232,10 @@
             <div class="membership-note">
                 <p><strong>会員資格の有効期間</strong></p>
                 <p>毎年4月1日から翌年3月31日までの1年間</p>
-                <p>入会をご希望の方は、下記お問い合わせよりご連絡ください。</p>
+                <p>入会をご希望の方は、下記フォームよりお申し込みください。</p>
+                <a href="https://forms.gle/hStNMaBy2Q41KaC26" target="_blank" rel="noopener noreferrer" class="membership-form-btn">
+                    お申し込みフォームはこちら
+                </a>
             </div>
         </div>
     </section>
