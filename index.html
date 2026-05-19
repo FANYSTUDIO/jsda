@@ -960,7 +960,7 @@
     </style>
 </head>
 <body>
-    <a href="https://forms.gle/W4JCpewsj7a9rFB26"
+    <a href="#public-call-card"
    target="_blank"
    rel="noopener noreferrer"
    class="top-banner">
@@ -1136,7 +1136,7 @@
                         <div class="news-card-title">最新記事はNoteでご覧ください</div>
                     </div>
                 </a>
-                <div class="news-card campaign-card">
+                <div class="news-card campaign-card" id="public-call-card">
                     <div class="news-card-image">📢</div>
                     <div class="news-card-body">
                         <div class="news-card-date notice-deadline">
@@ -1315,7 +1315,7 @@
             });
         });
     </script>
-<a href="https://forms.gle/W4JCpewsj7a9rFB26"
+<a href="#public-call-card"
    target="_blank"
    rel="noopener noreferrer"
    class="floating-banner">
@@ -1326,8 +1326,6 @@
 const nowTime = new Date();
 const campaignEnd = new Date('2026-06-09T17:00:00+09:00');
 
-const beforeCampaignDeadline = nowTime <= campaignEnd;
-
 /* 締切後バナー削除 */
 if (nowTime > campaignEnd) {
   document.querySelectorAll('.top-banner, .floating-banner').forEach(el => {
@@ -1335,32 +1333,6 @@ if (nowTime > campaignEnd) {
   });
 }
 
-/* ボタン切替 */
-const contactBtn = document.querySelector('.contact-form-btn');
-
-if (contactBtn) {
-  if (beforeCampaignDeadline) {
-    contactBtn.href = 'https://forms.gle/W4JCpewsj7a9rFB26';
-    contactBtn.target = '_blank';
-    contactBtn.innerHTML = '応募フォームはこちら';
-  } else {
-    contactBtn.href = 'https://forms.gle/gAcDHZp7Zgte4o5w7';
-    contactBtn.target = '_blank';
-    contactBtn.innerHTML = 'お問い合わせフォームはこちら';
-  }
-}
-
-/* 文言差し替え */
-const contactMessage = document.querySelector('.contact-message');
-
-if (contactMessage && beforeCampaignDeadline) {
-  contactMessage.innerHTML = `
-    <div class="value" style="font-size:1.15rem; line-height:1.9;">
-      公募へのご応募は<br>
-      応募フォームよりお進みください
-    </div>
-  `;
-}
 const campaignCard = document.querySelector('.campaign-card');
 const campaignStatus = document.querySelector('.campaign-status');
 
