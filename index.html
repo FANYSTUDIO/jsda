@@ -22,6 +22,24 @@
             margin-top: 1rem;
         }
 
+        .campaign-label {
+            color: #6f7682;
+            font-size: 0.84rem;
+            font-weight: 700;
+            line-height: 1.45;
+            margin-bottom: 0.35rem;
+        }
+
+        .campaign-title {
+            font-size: 1.12rem;
+            font-weight: 900;
+            line-height: 1.35;
+            color: var(--dark);
+            margin-bottom: 0;
+            word-break: keep-all;
+            overflow-wrap: anywhere;
+        }
+
         .campaign-button {
             display: inline-flex;
             align-items: center;
@@ -51,6 +69,17 @@
 
         .campaign-card.is-closed .campaign-actions {
             display: none;
+        }
+
+        @media (max-width: 480px) {
+            .campaign-label {
+                font-size: 0.8rem;
+            }
+
+            .campaign-title {
+                font-size: 1.04rem;
+                line-height: 1.34;
+            }
         }
 
         .contact-form-btn{
@@ -978,9 +1007,9 @@
     </style>
 </head>
 <body>
-    <a href="#public-call-card"
+    <a href="https://note.com/shortassosiation/n/na93397be09d1?app_launch=false" target="_blank" rel="noopener noreferrer"
    class="top-banner">
-   📢 「ショート動画ドラマ等の新たなIP開発」公募受付中｜令和8年6月9日（火）午後5時必着　応募はこちら →
+   📢『ショート動画ドラマ等の新たなIP開発』採択事業者決定　詳細はこちら →
 </a>
     <!-- ヘッダー -->
     <header>
@@ -1155,24 +1184,22 @@
                 <div class="news-card campaign-card" id="public-call-card">
                     <div class="news-card-image">📢</div>
                     <div class="news-card-body">
-                        <div class="news-card-date notice-deadline">
-                            応募締切：令和8年6月9日（火）午後5時必着
+                        <div class="news-card-date">
+                            令和8年6月29日
                         </div>
                         
-                        <div class="news-card-title">
-                            「ショート動画ドラマ等の新たなIP開発」公募のお知らせ
+                        <div class="campaign-label">
+                            「ショート動画ドラマ等の新たなIP開発」
+                        </div>
+                        <div class="campaign-title">
+                            採択事業者決定のお知らせ
                         </div>
                         
                         <div class="campaign-actions">
-                            <a href="https://drive.google.com/file/d/1MFM0AWMwhssimv2TAuetxAUgdO1qmMyU/preview" target="_blank" rel="noopener noreferrer" class="campaign-button secondary">
-                                公募要領を見る
-                            </a>
-                            <a href="https://forms.gle/W4JCpewsj7a9rFB26" target="_blank" rel="noopener noreferrer" class="campaign-button">
-                                応募フォームへ
+                            <a href="https://note.com/shortassosiation/n/na93397be09d1?app_launch=false" target="_blank" rel="noopener noreferrer" class="campaign-button">
+                                採択結果を見る
                             </a>
                         </div>
-
-                        <div class="campaign-status" style="margin-top:8px;font-size:0.9rem;color:#FF6B6B;font-weight:700;"></div>
                     </div>
                 </div>
             </div>
@@ -1334,38 +1361,20 @@
             });
         });
     </script>
-<a href="#public-call-card"
+<a href="https://note.com/shortassosiation/n/na93397be09d1?app_launch=false" target="_blank" rel="noopener noreferrer"
    class="floating-banner">
-   📢 公募受付中<br>
-   令和8年6月9日（火）午後5時必着 →
+   📢 採択事業者決定<br>
+   詳細はこちら →
 </a>
 <script>
 const nowTime = new Date();
-const campaignEnd = new Date('2026-06-09T17:00:00+09:00');
+const bannerEnd = new Date('2026-07-21T00:00:00+09:00');
 
-/* 締切後バナー削除 */
-if (nowTime > campaignEnd) {
+/* 令和8年7月20日まで表示し、翌日以降はバナーを非表示 */
+if (nowTime >= bannerEnd) {
   document.querySelectorAll('.top-banner, .floating-banner').forEach(el => {
     el.style.display = 'none';
   });
-}
-
-const campaignCard = document.querySelector('.campaign-card');
-const campaignStatus = document.querySelector('.campaign-status');
-
-if (nowTime > campaignEnd && campaignCard) {
-
-  /* 見た目調整 */
-  campaignCard.style.cursor = 'default';
-  campaignCard.style.opacity = '0.82';
-  campaignCard.style.filter = 'grayscale(22%)';
-  campaignCard.classList.add('is-closed');
-
-  /* 文言変更 */
-  if (campaignStatus) {
-    campaignStatus.innerHTML = '応募は締め切りました';
-    campaignStatus.style.color = '#666666';
-  }
 }
 
 </script>
